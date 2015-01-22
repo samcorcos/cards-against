@@ -1,0 +1,16 @@
+<template name="_menuItem">
+  {{#with database}} <!-- This instantiates the instance with the word "database" as the variable passed through -->
+    {{#ionItem}}
+      <button class="button">
+        {{> ionIcon icon="arrow-up-c" }}
+        {{upvotes}}
+      </button>
+      <span class="menu-item">
+        {{name}}
+      </span>
+
+
+      <!-- {{college}} -->
+    {{/ionItem}}
+  {{/with}}
+</template>

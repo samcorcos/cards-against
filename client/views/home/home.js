@@ -9,7 +9,9 @@ Template.home.rendered = function() {
 };
 
 Template.home.helpers({
-
+  database: function() {
+    return Database.find();
+  }
 });
 
 Template.home.events({

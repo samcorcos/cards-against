@@ -17,7 +17,13 @@
 
   {{#ionView}}
     {{#ionContent}}
-    <h1>this is home</h1>
+
+      {{#ionList}}
+        {{#each database}}
+          {{> _menuItem database=this}}
+        {{/each}}
+
+      {{/ionList}}
 
     {{/ionContent}}
   {{/ionView}}
