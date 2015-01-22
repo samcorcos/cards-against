@@ -1,12 +1,13 @@
 Meteor.methods({
 	getMenus: function(){
-    var cheerio = Meteor.npmRequire("cheerio");
-    console.log(cheerio);
+		var results = Meteor.http.get("https://aspc.pomona.edu/menu/", {timeout: 30000});
+    var html = results.content;
 
-		var results = Meteor.http.call("GET","https://aspc.pomona.edu/menu/");
+    $ = cheerio.load(html)
 
-    var $ = cheerio.html(results);
+    var table = $("#meal_header");
+    console.log(table);
 
-    return results.content;
+    return html;
 	}
 });
