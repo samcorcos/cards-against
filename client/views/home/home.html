@@ -4,11 +4,15 @@
   {{/contentFor}}
 
   {{#contentFor "headerButtonLeft"}}
-    {{>ionNavBackButton text=false}}
+    <button class="button">
+      {{>ionIcon icon="chevron-left"}}
+    </button>
   {{/contentFor}}
 
   {{#contentFor "headerButtonRight"}}
-    {{>ionNavBackButton text=false}}
+    <button class="button pull-right">
+      {{>ionIcon icon="chevron-right" }}
+    </button>
   {{/contentFor}}
 
   {{#ionView}}
