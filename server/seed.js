@@ -12,17 +12,17 @@ Meteor.startup(function () {
   })
   Database.insert({
     name: "Animals",
-    upvotes: 0,
+    upvotes: 2,
     college: "CMC"
   })
   Database.insert({
     name: "Woot",
-    upvotes: 0,
+    upvotes: 5,
     college: "CMC"
   })
   Database.insert({
     name: "Food",
-    upvotes: 0,
+    upvotes: 1,
     college: "CMC"
   })
   Database.insert({
