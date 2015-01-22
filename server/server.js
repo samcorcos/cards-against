@@ -15,12 +15,22 @@ Meteor.methods({
 
 
 		var parseMenu = function(diningHalls) {
-			
+
 		}
 
 
 
 
     return html;
+	},
+	addItem: function() {
+		MenuItems.insert({
+			itemName: "Hot Dogs",
+			college: "Scripps",
+			upvotes: 0
+		}, function(err, res) {
+			if (err) console.log("ERR", err);
+		})
+		console.log(MenuItems.find().fetch());
 	}
 });
