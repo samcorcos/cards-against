@@ -8,7 +8,6 @@ meteor-platform
 http
 
 
-meteoric:ionic
 coffeescript
 iron:router
 particle4dev:cheerio
@@ -17,3 +16,6 @@ sacha:spin
 accounts-password
 aldeed:simple-schema
 aldeed:collection2
+meteoric:ionic
+meteoric:ionicons-sass
+meteoric:ionic-sass
