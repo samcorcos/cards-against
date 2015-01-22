@@ -7,6 +7,6 @@ Meteor.methods({
 
     var $ = cheerio.html(results);
 
-    return results;
+    return results.content;
 	}
 });

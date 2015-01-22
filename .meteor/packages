@@ -12,3 +12,6 @@ meteorhacks:npm
 
 
 npm-container
+meteoric:ionic
+coffeescript
+iron:router
