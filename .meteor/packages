@@ -5,10 +5,15 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 http
-meteorhacks:npm
 
 
-npm-container
+meteoric:ionic
+coffeescript
+iron:router
+particle4dev:cheerio
+stevezhu:lodash
+sacha:spin
+accounts-password
+aldeed:simple-schema
+aldeed:collection2

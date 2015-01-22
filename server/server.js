@@ -1,12 +1,26 @@
 Meteor.methods({
 	getMenus: function(){
-    var cheerio = Meteor.npmRequire("cheerio");
-    console.log(cheerio);
+		var results = Meteor.http.get("https://aspc.pomona.edu/menu/", {timeout: 30000});
+    var html = results.content;
+    $ = cheerio.load(html)
 
-		var results = Meteor.http.call("GET","https://aspc.pomona.edu/menu/");
+		// These values are hard-coded
+		var meals = ["Breakfast", "Lunch", "Dinner"];
 
-    var $ = cheerio.html(results);
+		// These will be the IDs we will iterate over to get the menu items.
+		var diningHalls = ["frank_menu", "frary_menu", "oldenborg_menu", "cmc_menu", "scripps_menu", "pitzer_menu", "mudd_menu"];
 
-    return results;
+    var table = $("#meal_header>th").text();
+    console.log(table);
+
+
+		var parseMenu = function(diningHalls) {
+			
+		}
+
+
+
+
+    return html;
 	}
 });
