@@ -1,3 +1,12 @@
 <template name="recommendation">
-  <h1>This is recommndaiton</h1>
+  {{#contentFor "headerTitle"}}
+  <h1 class="title">Recommendations</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <h1>this is recommendations</h1>
+
+    {{/ionContent}}
+  {{/ionView}}
 </template>
