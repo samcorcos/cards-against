@@ -1,0 +1,25 @@
+<template name="signInModal">
+  {{#ionModal title="Sign In"}}
+    <div class="sign-in-modal">
+      <h3 style="text-align:center">Please sign in to perform this action</h3>
+      {{#ionItem}}
+        <input type="text" id="email" placeholder="Email">
+      {{/ionItem}}
+      {{#ionItem}}
+        <input type="password" id="password" placeholder="Password">
+      {{/ionItem}}
+
+<!--       {{#if creatingAccount}}
+  {{#ionItem}}
+  Would be nice to have some kind of validation
+  <input type="text" id="phone" placeholder="Phone Number (123-123-1234)">
+  {{/ionItem}}
+{{/if}} -->
+      <div style="text-align:center;margin-top:1rem;">
+        <button class="button" id="login-button">Login</button>
+        <button class="button" id="create-account-button">Create Account</button>
+      </div>
+
+    </div>
+  {{/ionModal}}
+</template>

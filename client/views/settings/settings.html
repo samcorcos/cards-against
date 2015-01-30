@@ -5,7 +5,31 @@
 
   {{#ionView}}
     {{#ionContent}}
-      <h1>this is settings</h1>
+
+      <h3 style="text-align:center;padding:1rem;">Account</h3>
+
+      {{#if currentUser}}
+        <div class="item item-button-right">
+            <span class="user-email">{{userEmail}}</span>
+            <button class="button" id="logout-button">Logout</button>
+        </div>
+      {{else}}
+
+        <div class="item item-button-right">
+          <span>You are not logged in</span>
+          <button class="button" id="login-create-button">Login/Create</button>
+        </div>
+        <!-- <div>
+          <button class="button" id="change-password-button">Change Password</button>
+          <button class="button" id="recover-password-button">Recover Password</button>
+        </div> -->
+
+      {{/if}}
+
+    
+
+      <div style="height:3rem;"></div>
+
 
     {{/ionContent}}
   {{/ionView}}
