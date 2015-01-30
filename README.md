@@ -1,2 +1,2 @@
-# ClaremontCollegesMenu
-Menu for the Claremont Colleges
+# Cards Against Humanity Mobile
+A mobile version of cards against humanity
