@@ -2,11 +2,7 @@
 
 if Meteor.isServer
   Meteor.publish "users", ->
-    Meteor.users.find
-      _id:
-        $ne:
-          @userId # finds all other users that are not the current user
-    ,
+    Meteor.users.find {} ,
       username: 1 # returns only username
 
 if Meteor.isClient

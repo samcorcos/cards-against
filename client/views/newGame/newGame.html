@@ -6,6 +6,8 @@
   {{#ionView}}
     {{#ionContent}}
 
+      {{#if currentUser}}
+
       {{#each allPlayers}}
         <!-- Should eventually have a live filter here -->
         <div class="item item-button-right">
@@ -15,9 +17,13 @@
           </button>
 
         </div>
-
-
       {{/each}}
+
+
+      {{else}}
+        <h1>Must be logged in</h1>
+      {{/if}}
+
 
     {{/ionContent}}
   {{/ionView}}
