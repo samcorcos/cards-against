@@ -6,8 +6,6 @@
 
 meteor-platform
 http
-
-
 coffeescript
 iron:router
 particle4dev:cheerio
