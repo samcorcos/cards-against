@@ -1,2 +1,2 @@
 Meteor.startup ->
-  console.log masterCards
+  # console.log masterCards
