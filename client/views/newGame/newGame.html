@@ -1,13 +1,15 @@
-<template name="recommendations">
+<template name="newGame">
   {{#contentFor "headerTitle"}}
-  <h1 class="title">Recommendations</h1>
+  <h1 class="title">New Game</h1>
   {{/contentFor}}
 
   {{#ionView}}
     {{#ionContent}}
-      {{#ionList}}
 
-      {{/ionList}}
+      {{#each allPlayers}}
+        <h1>hi</h1>
+      {{/each}}
+
     {{/ionContent}}
   {{/ionView}}
 </template>

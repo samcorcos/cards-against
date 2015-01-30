@@ -6,6 +6,7 @@ Template.signInModal.helpers
 Template.signInModal.events
   'click #create-account-button': (e,t) ->
     Accounts.createUser
+      username: t.find('#username').value
       email: t.find('#email').value
       password: t.find('#password').value
     ,
