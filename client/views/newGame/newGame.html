@@ -10,13 +10,7 @@
 
       {{#each allPlayers}}
         <!-- Should eventually have a live filter here -->
-        <div class="item item-button-right">
-          <span>{{username}}</span>
-          <button class="button">
-            Invite
-          </button>
-
-        </div>
+        {{> _playerItem}}
       {{/each}}
 
 
@@ -27,4 +21,27 @@
 
     {{/ionContent}}
   {{/ionView}}
+</template>
+
+
+<template name="_playerItem">
+  <div class="item item-button-right">
+    <span>{{username}}</span>
+    {{#if invited}}
+    <button class="button disabled">
+      Invited
+    </button>
+    {{/if}}
+    {{#if accepted}}
+    <button class="button disabled button-positive">
+      Accepted!
+    </button>
+    {{/if}}
+    {{#if available}}
+    <button class="button">
+      Invite
+    </button>
+    {{/if}}
+
+  </div>
 </template>
