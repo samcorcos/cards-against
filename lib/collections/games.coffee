@@ -3,7 +3,8 @@
 if Meteor.isServer
   Meteor.publish 'games', ->
     Games.find
-      currentTurn: @userId
+      players:
+        $exists: @userId
 
 
 if Meteor.isClient

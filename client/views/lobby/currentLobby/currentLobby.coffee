@@ -11,6 +11,7 @@ Template.currentLobby.events
     @players.forEach (player) ->
       playerIds.push(player.id)
     Meteor.call 'createGame', playerIds
+    # Then, delete the lobby, and redirect to the game page
 
 Template.currentLobby.helpers
   hostname: ->
