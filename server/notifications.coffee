@@ -8,3 +8,12 @@ Meteor.methods
         invite:
           hostName: hostName
           lobbyId: lobbyId
+
+  removeNotification: (lobbyId) ->
+    Meteor.users.update
+      _id: @userId
+    ,
+      $pull:
+        invite:
+          lobbyId: lobbyId
+    console.log "Successfully removed #{lobbyId}"

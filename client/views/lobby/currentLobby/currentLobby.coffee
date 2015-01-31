@@ -1,5 +1,5 @@
 Template.currentLobby.rendered = ->
-  Session.set "allPlayers", @data.players
+  console.log this
 
 Template.currentLobby.events
   'click #invite-players': (e,t) ->
@@ -11,4 +11,4 @@ Template.currentLobby.helpers
     Meteor.users.findOne
       _id: @host
   allPlayers: ->
-    Session.get "allPlayers"
+    Lobby.findOne(_id: @_id).players
