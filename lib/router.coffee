@@ -12,5 +12,5 @@ Router.map ->
   @route 'notifications',
     path: '/notifications'
 
-  @route 'newGame',
-    path: '/newgame'
+  @route 'lobby',
+    path: '/lobby'

@@ -1,0 +1,35 @@
+<template name="lobby">
+  {{#contentFor "headerTitle"}}
+  <h1 class="title">New Game</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+
+      {{#if currentUser}}
+
+      {{#ionItem}}
+      <button class="button button-positive" id="host-lobby">
+        Host a Lobby!
+      </button>
+      {{/ionItem}}
+
+<!--         {{#if currentGame}}
+  {{#each allPlayers}}
+    Should eventually have a live filter here
+
+  {{/each}}
+{{else}}
+This should be a "lobby" where people populate when they accept
+  <button class="button">Create Game!</button>
+
+{{/if}} -->
+
+      {{else}}
+        <h1>Must be logged in</h1>
+      {{/if}}
+
+
+    {{/ionContent}}
+  {{/ionView}}
+</template>
