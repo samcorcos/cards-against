@@ -11,6 +11,7 @@ Router.map ->
 
   @route 'notifications',
     path: '/notifications'
+    controller: 'NotificationsController'
 
   @route 'lobby',
     path: '/lobby'

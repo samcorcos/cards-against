@@ -6,10 +6,18 @@
   {{#ionView}}
     {{#ionContent}}
 
-      <div class="empty-view">
-        {{> ionIcon icon="ios-bell"}}
-        No notifications yet!
-      </div>
+      {{#if allNotifications}}
+        {{#each allNotifications}}
+          <div class="item">
+            {{hostName}}
+          </div>
+        {{/each}}
+      {{else}}
+        <div class="empty-view">
+          {{> ionIcon icon="ios-bell"}}
+          No notifications yet!
+        </div>
+      {{/if}}
 
     {{/ionContent}}
   {{/ionView}}

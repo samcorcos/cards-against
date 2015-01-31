@@ -3,7 +3,8 @@ Template.currentLobby.rendered = ->
 
 Template.currentLobby.events
   'click #invite-players': (e,t) ->
-    IonModal.open('invitePlayersModal')
+    Session.set "currentLobby", @_id
+    IonModal.open 'invitePlayersModal'
 
 Template.currentLobby.helpers
   hostname: ->
