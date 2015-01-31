@@ -14,7 +14,13 @@
           <button class="button" id="invite-players">Invite</button>
             <!-- <button class="button">Another</button> -->
         </div>
-
+        <ul class="list">
+          {{#each allPlayers}}
+            <li class="item">
+              {{username}}
+            </li>
+          {{/each}}
+        </ul>
 
 
 

@@ -8,8 +8,12 @@
 
       {{#if allNotifications}}
         {{#each allNotifications}}
-          <div class="item">
-            {{hostName}}
+          <div class="item item-button-right">
+            <span>{{hostName}}</span>
+            <div class="buttons">
+              <button class="button-clear"><i class="ion-checkmark-round"></i></button>
+              <button class="button-clear"><i class="ion-close-round"></i></button>
+            </div>
           </div>
         {{/each}}
       {{else}}
