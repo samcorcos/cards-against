@@ -20,8 +20,10 @@
 
       {{#ionList}}
 
-        <p>this will be a list of all active games</p>
+        {{#each gameData}}
+        <p>{{currentTurn}}</p>
         <p>Each active game will have an ID and a route</p>
+        {{/each}}
 
       {{/ionList}}
 
