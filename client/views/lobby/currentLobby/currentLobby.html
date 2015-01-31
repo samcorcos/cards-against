@@ -7,11 +7,13 @@
     {{#ionContent}}
 
       {{#if currentUser}}
-      
-        {{#ionItem}}
-           <h2 style="font-size:1.5em;">{{hostname}}John</h2>
+
+        <div class="item item-button-right">
+           <h2 style="font-size:1.5em;">{{hostname.username}}</h2>
            <p class="host-subtitle">Host</p>
-        {{/ionItem}}
+           <button class="button">Button</button>
+           <!-- <button class="button">Another</button> -->
+        </div>
 
 
 

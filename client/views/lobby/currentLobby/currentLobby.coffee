@@ -3,4 +3,7 @@ Template.currentLobby.rendered = ->
 
 Template.currentLobby.events {}
 
-Template.currentLobby.helpers {}
+Template.currentLobby.helpers
+  hostname: ->
+    Meteor.users.findOne
+      _id: @host
