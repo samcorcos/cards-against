@@ -14,3 +14,8 @@ Router.map ->
 
   @route 'lobby',
     path: '/lobby'
+
+  @route 'currentLobby',
+    path: '/lobby/:_id'
+    data: ->
+      Lobby.findOne(@params._id)

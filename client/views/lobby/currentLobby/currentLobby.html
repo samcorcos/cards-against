@@ -1,6 +1,6 @@
-<template name="lobby">
+<template name="currentLobby">
   {{#contentFor "headerTitle"}}
-  <h1 class="title">New Game</h1>
+  <h1 class="title">Game Lobby</h1>
   {{/contentFor}}
 
   {{#ionView}}
@@ -21,11 +21,7 @@
 
 
         {{else}}
-          {{#ionItem}}
-          <button class="button button-positive" id="host-lobby">
-            Host a Lobby!
-          </button>
-          {{/ionItem}}
+
         {{/if}}
 
       {{else}}

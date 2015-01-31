@@ -14,8 +14,9 @@
         {{> _playerItem}}
       {{/each}}
     {{else}}
+
     This should be a "lobby" where people populate when they accept
-      <button class="button">Create Game!</button>
+
 
     {{/if}}
 
@@ -24,26 +25,4 @@
   {{/if}}
 
   {{/ionModal}}
-</template>
-
-<template name="_playerItem">
-  <div class="item item-button-right">
-    <span>{{username}}</span>
-    {{#if invited}}
-    <button class="button disabled">
-      Invited
-    </button>
-    {{/if}}
-    {{#if accepted}}
-    <button class="button disabled button-positive">
-      Accepted!
-    </button>
-    {{/if}}
-    {{#if available}}
-    <button class="button">
-      Invite
-    </button>
-    {{/if}}
-
-  </div>
 </template>
