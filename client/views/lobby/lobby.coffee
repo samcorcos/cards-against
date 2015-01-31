@@ -10,7 +10,7 @@ Template.lobby.events
     # this is going to eventually have to make a server call to update the user profile so he can get back to this lobby
     Router.go("currentLobby", _id: lobbyId)
 
-    # Session.set "currentLobby", @_id
+    # Session.set "currentLobby", @_id # this isnt working, so we cant open modal on route
     # IonModal.open("invitePlayersModal")
 
 Template.lobby.helpers
