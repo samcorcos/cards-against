@@ -6,6 +6,12 @@ Template.currentLobby.events
     Session.set "currentLobby", @_id
     IonModal.open 'invitePlayersModal'
 
+  'click #start-game': (e,t) ->
+    playerIds = [@host]
+    @players.forEach (player) ->
+      playerIds.push(player.id)
+    Meteor.call 'createGame', playerIds
+
 Template.currentLobby.helpers
   hostname: ->
     Meteor.users.findOne
