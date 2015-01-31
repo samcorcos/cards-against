@@ -19,8 +19,6 @@ Template.notifications.events
 
 
   'click .ion-close-round': (e,t) ->
-    # should remove the notification from the user
-    # should also remove the user from the invited player list in the relevant lobby
     Meteor.call "removeNotification", @lobbyId
 
 

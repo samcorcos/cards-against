@@ -15,10 +15,26 @@ Template.invitePlayersModal.helpers
 
 Template._playerItem.helpers
   invited: ->
-
+    lobbyId = Session.get "currentLobby"
+    userId = @_id
+    if (Lobby.find
+      _id: lobbyId
+      invitedPlayers:
+        $in: [userId]).count()
+      true
+    else
+      false
 
   accepted: ->
-
+    lobbyId = Session.get "currentLobby"
+    userId = @_id
+    if (Lobby.find
+      _id: lobbyId
+      players:
+        $exists: userId).count()
+      true
+    else
+      false
 
   available: ->
     true

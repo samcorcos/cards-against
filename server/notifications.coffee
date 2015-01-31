@@ -16,4 +16,13 @@ Meteor.methods
       $pull:
         invite:
           lobbyId: lobbyId
+
+    # Lobby.update # this is not currently working
+    #   _id: lobbyId
+    # ,
+    #   $pull:
+    #     players:
+    #       id: @userId
     console.log "Successfully removed #{lobbyId}"
+
+    # should also remove the user from the invited player list in the relevant lobby
