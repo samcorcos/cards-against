@@ -25,16 +25,18 @@ Template._playerItem.helpers
     else
       false
 
-  accepted: ->
-    lobbyId = Session.get "currentLobby"
-    userId = @_id
-    if (Lobby.find
-      _id: lobbyId
-      players:
-        $exists: userId).count()
-      true
-    else
-      false
+      # not currently working
+  # accepted: ->
+  #   lobbyId = Session.get "currentLobby"
+  #   userId = @_id
+  #   if (Lobby.find
+  #     _id: lobbyId
+  #     players:
+  #       userId:
+  #         $exists: true).count()
+  #     true
+  #   else
+  #     false
 
   available: ->
     true

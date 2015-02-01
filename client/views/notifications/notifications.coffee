@@ -13,6 +13,9 @@ Template.notifications.events
         players:
           id: Meteor.user()._id
           username: Meteor.user().username
+    ,
+      $pull:
+        invitedPlayers: Meteor.user()._id
 
     Router.go "/lobby/#{lobbyId}"
 

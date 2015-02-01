@@ -38,9 +38,11 @@ createBlackDeck = ->
   _.shuffle(cards)
 
 createPlayers = (players) ->
-  temp = {}
+  temp = []
   players.forEach (player) ->
-    temp[player] =
-      hand: []
-      score: 0
+    o = {}
+    o.playerId = player
+    o.hand = []
+    o.score = 0
+    temp.push(o)
   temp
