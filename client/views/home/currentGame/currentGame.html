@@ -18,6 +18,7 @@
       </div>
 
       {{> _hand}}
+      {{> _score}}
 
       {{else}}
       <h2>Please log in</h2>
@@ -32,11 +33,19 @@
 <template name="_hand">
   <ul class="list">
     {{#each currentHand.hand}}
-      <li class="item item-icon-right">
+      <li class="item item-icon-right item-text-wrap">
         <span>{{text}}</span>
         <i class="ion-arrow-right-a icon"></i>
       </li>
     {{/each}}
   </ul>
+</template>
 
+
+<template name="_score">
+  {{#ionItem}}
+    {{#each currentScore}}
+      <span>{{player}}: {{score}},</span>
+    {{/each}}
+  {{/ionItem}}
 </template>
