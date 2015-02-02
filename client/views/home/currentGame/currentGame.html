@@ -17,11 +17,26 @@
         <h2 style="color:white;padding-right:1rem;">Q: </h2><span class="center-align">{{table.text}}</span>
       </div>
 
+      {{> _hand}}
+
       {{else}}
       <h2>Please log in</h2>
       {{/if}}
 
     {{/ionContent}}
   {{/ionView}}
+
+</template>
+
+
+<template name="_hand">
+  <ul class="list">
+    {{#each currentHand.hand}}
+      <li class="item item-icon-right">
+        <span>{{text}}</span>
+        <i class="ion-arrow-right-a icon"></i>
+      </li>
+    {{/each}}
+  </ul>
 
 </template>
