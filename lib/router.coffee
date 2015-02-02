@@ -21,3 +21,9 @@ Router.map ->
     data: ->
       Lobby.findOne(@params._id)
     controller: 'CurrentLobbyController'
+
+  @route 'currentGame',
+    path: '/game/:_id'
+    data: ->
+      Games.findOne(@params._id)
+    controller: "GamesController"
