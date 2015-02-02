@@ -1,3 +1,27 @@
 <template name="currentGame">
 
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Cards Against Humanity</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+
+      {{#if currentUser}}
+
+      <div class="item">
+        <h2 class="title">Game Between: {{#each players}} {{playerName}}, {{/each}}</h2>
+      </div>
+
+      <div class="bar bar-dark">
+        <h2 style="color:white;padding-right:1rem;">Q: </h2><span class="center-align">{{table.text}}</span>
+      </div>
+
+      {{else}}
+      <h2>Please log in</h2>
+      {{/if}}
+
+    {{/ionContent}}
+  {{/ionView}}
+
 </template>

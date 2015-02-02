@@ -11,6 +11,7 @@ Template.currentLobby.events
     @players.forEach (player) ->
       playerIds.push(player.id)
     Meteor.call 'createGame', playerIds
+    Router.go('home') # this does not redirect everyone, just host... Need to fix...
     # Then, delete the lobby, and redirect to the game page
 
 Template.currentLobby.helpers

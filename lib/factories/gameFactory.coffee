@@ -17,6 +17,8 @@ GameFactory.createGame = (playerIds) ->
   inProgress: true
   started: new Date()
 
+  # would be helpful if this could return the id so we could redirect to the game page after game has been started
+
 
 
 
@@ -42,6 +44,7 @@ createPlayers = (players) ->
   players.forEach (player) ->
     o = {}
     o.playerId = player
+    o.playerName = Meteor.users.findOne(_id: player).username
     o.hand = []
     o.score = 0
     temp.push(o)
