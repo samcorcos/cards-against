@@ -9,16 +9,28 @@
 
       {{#if currentUser}}
 
-      <div class="item">
-        <h2 class="title">Game Between: {{#each players}} {{playerName}}, {{/each}}</h2>
+      <div class="item item-assertive">
+        <span>Game Between: {{#each players}} {{playerName}}, {{/each}}</span>
       </div>
 
-      <div class="bar bar-dark">
-        <h2 style="color:white;padding-right:1rem;">Q: </h2><span class="center-align">{{table.text}}</span>
+      <div class="item item-dark">
+        <span style="font-size:1.5em;padding-right:0.5em;">Q: </span><span class="center-align">{{table.text}}</span>
       </div>
 
-      {{> _hand}}
-      {{> _score}}
+        {{#if yourTurn}}
+
+          <ul class="list">
+            <li class="item">
+              All Submitted Cards
+            </li>
+          </ul>
+
+
+        {{else}}
+          {{> _hand}}
+        {{/if}}
+
+        {{> _score}}
 
       {{else}}
       <h2>Please log in</h2>
@@ -28,6 +40,8 @@
   {{/ionView}}
 
 </template>
+
+<!-- If your turn, render a different template, in which you receive these cards... -->
 
 
 <template name="_hand">
@@ -43,6 +57,9 @@
 
 
 <template name="_score">
+  <div class="item item-dark">
+    <span>Score</span>
+  </div>
   {{#ionItem}}
     {{#each currentScore}}
       <span>{{player}}: {{score}},</span>

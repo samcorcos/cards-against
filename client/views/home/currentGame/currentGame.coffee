@@ -2,7 +2,13 @@ Template.currentGame.rendered = ->
 
 Template.currentGame.events {}
 
-Template.currentGame.helpers {}
+Template.currentGame.helpers
+  yourTurn: ->
+    game = Games.findOne( _id: @_id)
+    if game.currentTurn[0] is Meteor.user()._id
+      true
+    else
+      false
 
 ###
 Need to display the current black card
@@ -18,7 +24,8 @@ Template._hand.helpers
 
 Template._hand.events
   'click .ion-arrow-right-a': (e,t) ->
-    console.log this # this is the event for choosing a card
+    # if t.data.currentTurn[0] is not Meteor.user()._id
+    #   Meteor.call('takeTurn', t.data._id, Meteor.user()._id, this)
 
 Template._score.helpers
   currentScore: ->
