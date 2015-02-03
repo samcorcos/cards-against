@@ -24,6 +24,7 @@ Template._hand.helpers
 
 Template._hand.events
   'click .ion-arrow-right-a': (e,t) ->
+    Meteor.call('submitCard', t.data._id, Meteor.user()._id, this)
     # if t.data.currentTurn[0] is not Meteor.user()._id
     #   Meteor.call('takeTurn', t.data._id, Meteor.user()._id, this)
 

@@ -13,17 +13,19 @@
         <span>Game Between: {{#each players}} {{playerName}}, {{/each}}</span>
       </div>
 
-      <div class="item item-dark">
+      <div class="item item-dark item-text-wrap">
         <span style="font-size:1.5em;padding-right:0.5em;">Q: </span><span class="center-align">{{table.text}}</span>
       </div>
 
         {{#if yourTurn}}
 
           <ul class="list">
+            {{#each submittedCards}}
             <li class="item item-text-wrap item-icon-right">
-              <span>Cards go here</span>
+              <span>{{card.text}}</span>
               <i class="icon ion-checkmark-round"></i>
             </li>
+            {{/each}}
           </ul>
 
 
