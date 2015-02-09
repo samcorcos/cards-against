@@ -1,5 +1,9 @@
 Template.currentLobby.rendered = ->
-  console.log this
+  @autorun ->
+    data = Template.currentData()
+    if data.url
+      Router.go data.url
+
 
 Template.currentLobby.events
   'click #invite-players': (e,t) ->
@@ -8,15 +12,41 @@ Template.currentLobby.events
 
   'click #start-game': (e,t) ->
     playerIds = [@host]
+    lobbyId = Template.currentData()._id
+
     @players.forEach (player) ->
       playerIds.push(player.id)
-    Meteor.call 'createGame', playerIds
-    Router.go('home') # this does not redirect everyone, just host... Need to fix...
+
+    Meteor.call 'createGame', playerIds, (err, res) ->
+      #res is the new game ID
+
+      console.log lobbyId
+      console.log "FESAFEWAFEWAFEWAFEWA", res
+      Lobby.update
+        _id: lobbyId
+      ,
+        $set:
+          url: "/game/#{res}"
+
+      console.log "running"
+
+
+    # Router.go('home') # this does not redirect everyone, just host... Need to fix...
     # Then, delete the lobby, and redirect to the game page
 
 Template.currentLobby.helpers
   hostname: ->
+    data = Template.currentData()
     Meteor.users.findOne
-      _id: @host
+      _id: data.host
   allPlayers: ->
-    Lobby.findOne(_id: @_id).players
+    data = Template.currentData()
+    Lobby.findOne(_id: data._id).players
+
+
+###
+
+Get set the url for the lobby
+when the url property changes, use autorun to route everyone to the lobby url (to the game)
+
+###

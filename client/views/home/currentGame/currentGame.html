@@ -22,7 +22,7 @@
           <ul class="list">
             {{#each submittedCards}}
             <li class="item item-text-wrap item-icon-right">
-              <span>{{card.text}}</span>
+              <span>{{{card.text}}}</span>
               <i class="icon ion-checkmark-round"></i>
             </li>
             {{/each}}
@@ -51,7 +51,7 @@
   <ul class="list">
     {{#each currentHand.hand}}
       <li class="item item-icon-right item-text-wrap">
-        <span>{{text}}</span>
+        <span>{{{text}}}</span>
         <i class="ion-arrow-right-a icon"></i>
       </li>
     {{/each}}
