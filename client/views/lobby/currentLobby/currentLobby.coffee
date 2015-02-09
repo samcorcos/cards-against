@@ -18,18 +18,11 @@ Template.currentLobby.events
       playerIds.push(player.id)
 
     Meteor.call 'createGame', playerIds, (err, res) ->
-      #res is the new game ID
-
-      console.log lobbyId
-      console.log "FESAFEWAFEWAFEWAFEWA", res
       Lobby.update
         _id: lobbyId
       ,
         $set:
           url: "/game/#{res}"
-
-      console.log "running"
-
 
     # Router.go('home') # this does not redirect everyone, just host... Need to fix...
     # Then, delete the lobby, and redirect to the game page

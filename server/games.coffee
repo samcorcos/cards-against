@@ -4,8 +4,6 @@ Meteor.methods
     Games.insert game
 
 
-
-
   submitCard: (gameId, playerId, card) ->
     game = Games.findOne(_id: gameId)
 
