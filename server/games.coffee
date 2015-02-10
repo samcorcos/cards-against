@@ -6,29 +6,32 @@ Meteor.methods
 
   submitCard: (gameId, playerId, card) ->
     game = Games.findOne(_id: gameId)
+    err = ""
+    turn = true
 
-    # Games.update
-    #   _id: gameId
-    # ,
-    #   $addToSet:
-    #     submittedCards:
-    #       card: card
-    #       player: playerId
+    game.submittedCards.forEach (pair) -> # this is an array of the cards...
+      if pair.player is playerId
+        turn = false
+        err = "Already played!"
+      return
 
-    subCards = game.submittedCards
-    subCards.push
-      card: card
-      player: playerId
-    game.submittedCards = _.uniq(subCards)
+    if turn
+      subCards = game.submittedCards
+      subCards.push
+        card: card
+        player: playerId
+      game.submittedCards = _.uniq(subCards)
 
-    hand = game.players[playerId].hand
-    newHand = _.without(hand, _.findWhere(hand, _id: card._id))
-    game.players[playerId].hand = newHand
+      hand = game.players[playerId].hand
+      newHand = _.without(hand, _.findWhere(hand, _id: card._id))
+      game.players[playerId].hand = newHand
 
-    Games.update
-      _id: gameId
-    ,
-      game
+      Games.update
+        _id: gameId
+      ,
+        game
+
+    err
 
     # find the game DONE
     # add the card to the "submitted cards" DONE

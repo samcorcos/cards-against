@@ -19,7 +19,8 @@ Template._hand.helpers
 
 Template._hand.events
   'click .ion-arrow-right-a': (e,t) ->
-    Meteor.call('submitCard', t.data._id, Meteor.user()._id, this)
+    Meteor.call 'submitCard', t.data._id, Meteor.user()._id, this, (err, res) ->
+      alert res if res
 
     # if t.data.currentTurn[0] is not Meteor.user()._id
     #   Meteor.call('takeTurn', t.data._id, Meteor.user()._id, this)
@@ -40,7 +41,7 @@ Template.currentGame.events
     console.log  this
     a = confirm "Are you sure you want to pick this card?"
     if a
-      
+
       ###
 
       Give the player who submitted the card a point
