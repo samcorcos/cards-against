@@ -7,29 +7,35 @@ Meteor.methods
   submitCard: (gameId, playerId, card) ->
     game = Games.findOne(_id: gameId)
 
+    # Games.update
+    #   _id: gameId
+    # ,
+    #   $addToSet:
+    #     submittedCards:
+    #       card: card
+    #       player: playerId
+
+    subCards = game.submittedCards
+    subCards.push
+      card: card
+      player: playerId
+    game.submittedCards = _.uniq(subCards)
+
+    hand = game.players[playerId].hand
+    newHand = _.without(hand, _.findWhere(hand, _id: card._id))
+    game.players[playerId].hand = newHand
+
     Games.update
       _id: gameId
     ,
-      $addToSet:
-        submittedCards:
-          card: card
-          player: playerId
+      game
 
-    hand = game.players[playerId].hand
-    console.log hand
-
-
-    # find the game
-    # add the card to the "submitted cards"
+    # find the game DONE
+    # add the card to the "submitted cards" DONE
     # remove the card from the player's hand
-    # make sure user has 10 cards?
 
   selectWinner: (gameId, card) ->
+    game = Games.findOne(_id: gameId)
 
-
-
-
-
-  # takeTurn: (gameId, playerId, card) ->
-  #   game = Games.findOne( _id: gameId)
-  #   hand = $.grep(game.players, (o) -> o.playerId is playerId)
+    # game.currentTurn.unshift(game.currentTurn.pop()) # takes the player at the end of the array adn puts him at the beginning of the array
+    # On click... have a confirmation?

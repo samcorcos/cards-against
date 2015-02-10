@@ -17,6 +17,7 @@ GameFactory.createGame = (playerIds) ->
   currentTurn: playerIds
   inProgress: true
   started: new Date()
+  submittedCards: []
 
   # would be helpful if this could return the id so we could redirect to the game page after game has been started
 
