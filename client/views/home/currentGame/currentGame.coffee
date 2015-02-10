@@ -22,9 +22,6 @@ Template._hand.events
     Meteor.call 'submitCard', t.data._id, Meteor.user()._id, this, (err, res) ->
       alert res if res
 
-    # if t.data.currentTurn[0] is not Meteor.user()._id
-    #   Meteor.call('takeTurn', t.data._id, Meteor.user()._id, this)
-
 Template._score.helpers
   currentScore: ->
     game = Games.findOne( _id: @_id)
@@ -41,12 +38,5 @@ Template.currentGame.events
     console.log  this
     a = confirm "Are you sure you want to pick this card?"
     if a
-
-      ###
-
-      Give the player who submitted the card a point
-      Re-deal the table
-      Deal one to all players (while < 10 cards)
-      Change the turn
-
-      ###
+      data = Template.currentData()
+      Meteor.call 'selectWinner', data._id, this

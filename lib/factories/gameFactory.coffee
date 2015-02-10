@@ -7,8 +7,9 @@ GameFactory.createGame = (playerIds) ->
 
   GameFactory.dealPlayers(players, whiteDeck)
   GameFactory.dealOne(players, whiteDeck)
+  GameFactory.dealTable(blackDeck)
 
-  table = dealTable(blackDeck)
+  table = GameFactory.dealTable(blackDeck) # this might have an error... Perhaps we need to run GameFactory....
 
   blackDeck: blackDeck
   whiteDeck: whiteDeck
@@ -31,9 +32,9 @@ GameFactory.dealPlayers = (players, whiteDeck) -> # deals each player 10 cards
 
 GameFactory.dealOne = (players, whiteDeck) ->
   Object.keys(players).forEach (player) ->
-    players[player].hand.push(whiteDeck.shift())
+    players[player].hand.push(whiteDeck.shift()) if players[player].hand.length < 10
 
-dealTable = (blackDeck) ->
+GameFactory.dealTable = (blackDeck) ->
   blackDeck.shift() # this will give us the black card, but it isn't assigned to any players
 
 
@@ -54,17 +55,3 @@ createPlayers = (players) ->
       score: 0
     return
   o
-
-
-  # temp = []
-  # players.forEach (player) ->
-  #   o = {}
-  #   o.playerId = player
-  #   o.playerName = Meteor.users.findOne(_id: player).username
-  #   o.hand = []
-  #   o.score = 0
-  #   temp.push(o)
-  # temp
-
-
-# I want to change this so it now creates an object with the playerID, then properties inside it...

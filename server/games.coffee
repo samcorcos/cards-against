@@ -40,5 +40,28 @@ Meteor.methods
   selectWinner: (gameId, card) ->
     game = Games.findOne(_id: gameId)
 
-    # game.currentTurn.unshift(game.currentTurn.pop()) # takes the player at the end of the array adn puts him at the beginning of the array
-    # On click... have a confirmation?
+    game.players[card.player].score++ # find the player that submitted the card and give him a point
+
+    # TODO could pop up a modal with the winning cards information?
+
+    game.currentTurn.unshift(game.currentTurn.pop()) # takes the player at the end of the array adn puts him at the beginning of the array
+
+    GameFactory.dealOne(game.players, game.whiteDeck) # Deal card to all players with less than 10 cards
+
+    game.table = GameFactory.dealTable(game.blackDeck)
+
+    game.submittedCards = []
+
+    Games.update
+      _id: gameId
+    ,
+      game
+
+    ###
+
+    Give the player who submitted the card a point DONE
+    Re-deal the table
+    Deal one to all players (while < 10 cards)
+    Change the turn
+
+    ###
