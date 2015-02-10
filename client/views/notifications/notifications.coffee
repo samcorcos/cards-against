@@ -17,6 +17,7 @@ Template.notifications.events
       $pull:
         invitedPlayers: Meteor.user()._id
 
+    Meteor.call "removeNotification", @lobbyId
     Router.go "/lobby/#{lobbyId}"
 
 

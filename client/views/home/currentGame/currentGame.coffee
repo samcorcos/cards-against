@@ -1,20 +1,14 @@
-Template.currentGame.rendered = ->
-
-Template.currentGame.events {}
-
 Template.currentGame.helpers
   yourTurn: ->
     game = Games.findOne( _id: @_id)
-    if game.currentTurn[0] is Meteor.user()._id
-      true
-    else
-      false
+    if game.currentTurn[0] is Meteor.user()._id then true else false
 
-###
-Need to display the current black card
-Need to display the cards in this user's hand
-###
-
+  players: ->
+    data = Template.currentData()
+    playersArray = []
+    for key,value of data.players
+      playersArray.push(value.playerName)
+    playersArray
 
 Template._hand.helpers
   currentHand: ->

@@ -10,7 +10,7 @@
       {{#if currentUser}}
 
       <div class="item item-assertive">
-        <span>Game Between: {{#each players}} {{playerName}}, {{/each}}</span>
+        <span>Game Between: {{#each players}} {{this}}, {{/each}}</span>
       </div>
 
       <div class="item item-dark item-text-wrap">
@@ -49,12 +49,12 @@
 
 <template name="_hand">
   <ul class="list">
-    {{#each currentHand.hand}}
+    <!-- {{#each currentHand.hand}}
       <li class="item item-icon-right item-text-wrap">
         <span>{{{text}}}</span>
         <i class="ion-arrow-right-a icon"></i>
       </li>
-    {{/each}}
+    {{/each}} -->
   </ul>
 </template>
 
@@ -64,8 +64,8 @@
     <span>Score</span>
   </div>
   {{#ionItem}}
-    {{#each currentScore}}
+    <!-- {{#each currentScore}}
       <span>{{player}}: {{score}},</span>
-    {{/each}}
+    {{/each}} -->
   {{/ionItem}}
 </template>
