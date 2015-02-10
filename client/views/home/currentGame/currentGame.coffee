@@ -13,8 +13,14 @@ Template.currentGame.helpers
 Template._hand.helpers
   currentHand: ->
     game = Games.findOne( _id: @_id)
-    res = $.grep(game.players, (o) -> o.playerId is Meteor.user()._id)
-    res[0]
+    userId = Meteor.user()._id
+    # res = $.grep(game.players, (o) -> o[playerId] is Meteor.user()._id)
+    # console.log res
+    # res[0]
+    game.players[userId]
+
+
+
 
 Template._hand.events
   'click .ion-arrow-right-a': (e,t) ->
@@ -26,9 +32,9 @@ Template._score.helpers
   currentScore: ->
     game = Games.findOne( _id: @_id)
     score = []
-    game.players.forEach (player) ->
+    for key,value of game.players
       o = {}
-      o.player = player.playerName
-      o.score = player.score
+      o.player = value.playerName
+      o.score = value.score
       score.push(o)
     score
