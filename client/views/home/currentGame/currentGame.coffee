@@ -35,7 +35,6 @@ Template._score.helpers
 
 Template.currentGame.events
   'click .ion-checkmark-round': (e,t) ->
-    console.log  this
     a = confirm "Are you sure you want to pick this card?"
     if a
       data = Template.currentData()
