@@ -1,45 +1,25 @@
-Template.invitePlayersModal.rendered = ->
-
-
-Template.invitePlayersModal.events {}
-
 Template.invitePlayersModal.helpers
   allPlayers: ->
     Meteor.users.find _id:
       $ne: Meteor.user()._id
 
-  currentGame: ->
-    true
-
-
-
 Template._playerItem.helpers
   invited: ->
-    lobbyId = Session.get "currentLobby"
+    lobbyId = Session.get "currentLobby" # TODO this is not an optimal solution... But it will work.
     userId = @_id
-    if (Lobby.find
-      _id: lobbyId
-      invitedPlayers:
-        $in: [userId]).count()
-      true
-    else
-      false
-
-      # not currently working
-  # accepted: ->
-  #   lobbyId = Session.get "currentLobby"
-  #   userId = @_id
-  #   if (Lobby.find
-  #     _id: lobbyId
-  #     players:
-  #       userId:
-  #         $exists: true).count()
-  #     true
-  #   else
-  #     false
+    status = false
+    Lobby.findOne(lobbyId).invitedPlayers.forEach (playerId) ->
+      status = if playerId is userId then true else false
+    status
 
   available: ->
-    true
+    lobbyId = Session.get "currentLobby" # TODO this is not an optimal solution... But it will work.
+    userId = @_id
+    status = true
+    Lobby.findOne(lobbyId).invitedPlayers.forEach (playerId) ->
+      status = if playerId is userId then false else true
+    status
+
 
 Template._playerItem.events
   'click button': (e,t) ->

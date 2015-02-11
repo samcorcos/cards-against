@@ -24,6 +24,11 @@ Template.notifications.events
 
   'click .ion-close-round': (e,t) ->
     Meteor.call "removeNotification", @lobbyId
+    Lobby.update
+      _id: @lobbyId
+    ,
+      $pull:
+        invitedPlayers: Meteor.user()._id
 
 
 Template.notifications.helpers

@@ -3,7 +3,6 @@
 
   {{#if currentUser}}
 
-    {{#if currentGame}}
     <div class="list list-inset">
       <label class="item item-input">
         <i class="icon ion-search placeholder-icon"></i>
@@ -13,12 +12,6 @@
       {{#each allPlayers}}
         {{> _playerItem}}
       {{/each}}
-    {{else}}
-
-    This should be a "lobby" where people populate when they accept
-
-
-    {{/if}}
 
   {{else}}
     <h1>Must be logged in</h1>

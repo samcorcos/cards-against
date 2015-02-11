@@ -6,7 +6,7 @@ Template.currentLobby.rendered = ->
 
 Template.currentLobby.events
   'click #invite-players': (e,t) ->
-    Session.set "currentLobby", @_id
+    Session.set 'currentLobby', t.data._id
     IonModal.open 'invitePlayersModal'
 
   'click #start-game': (e,t) ->

@@ -5,5 +5,6 @@ Template.lobby.events
       hostName: Meteor.user().username
       status: true
       players: []
+      invitedPlayers: []
       url: false
     Router.go("currentLobby", _id: lobbyId)
