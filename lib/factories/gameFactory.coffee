@@ -20,11 +20,6 @@ GameFactory.createGame = (playerIds) ->
   started: new Date()
   submittedCards: []
 
-  # would be helpful if this could return the id so we could redirect to the game page after game has been started
-
-
-
-
 GameFactory.dealPlayers = (players, whiteDeck) -> # deals each player 10 cards
   for i in [0...10]
     Object.keys(players).forEach (player) ->

@@ -19,8 +19,15 @@ Template._hand.helpers
 
 Template._hand.events
   'click .ion-arrow-right-a': (e,t) ->
-    Meteor.call 'submitCard', t.data._id, Meteor.user()._id, this, (err, res) ->
-      alert res if res
+    turn = true
+    t.data.submittedCards.forEach (pair) ->
+      if pair.player is Meteor.user()._id
+        turn = false
+
+    if turn is true and confirm("Are you sure you want to pick this card?")
+      Meteor.call 'submitCard', t.data._id, Meteor.user()._id, this
+    else
+      alert "Already played!"
 
 Template._score.helpers
   currentScore: ->
@@ -35,7 +42,6 @@ Template._score.helpers
 
 Template.currentGame.events
   'click .ion-checkmark-round': (e,t) ->
-    a = confirm "Are you sure you want to pick this card?"
-    if a
+    if confirm "Are you sure you want to pick this card?"
       data = Template.currentData()
       Meteor.call 'selectWinner', data._id, this

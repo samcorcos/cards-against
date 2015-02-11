@@ -22,3 +22,13 @@
   font-size: 1.5em;
   color: #F6402B;
 }
+
+.valign-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .valign {
+    display: block;
+  }
+}
