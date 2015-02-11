@@ -4,7 +4,6 @@ Template.currentLobby.rendered = ->
     if data.url
       Router.go data.url
 
-
 Template.currentLobby.events
   'click #invite-players': (e,t) ->
     Session.set "currentLobby", @_id
@@ -24,9 +23,6 @@ Template.currentLobby.events
         $set:
           url: "/game/#{res}"
 
-    # Router.go('home') # this does not redirect everyone, just host... Need to fix...
-    # Then, delete the lobby, and redirect to the game page
-
 Template.currentLobby.helpers
   hostname: ->
     data = Template.currentData()
@@ -35,11 +31,6 @@ Template.currentLobby.helpers
   allPlayers: ->
     data = Template.currentData()
     Lobby.findOne(_id: data._id).players
-
-
-###
-
-Get set the url for the lobby
-when the url property changes, use autorun to route everyone to the lobby url (to the game)
-
-###
+  isHost: ->
+    data = Template.currentData()
+    if Meteor.user()._id is data.host then true else false

@@ -1,29 +1,20 @@
 <template name="lobby">
   {{#contentFor "headerTitle"}}
-  <h1 class="title">New Game</h1>
+  <h1 class="title">Lobby</h1>
   {{/contentFor}}
 
   {{#ionView}}
     {{#ionContent}}
 
       {{#if currentUser}}
-        {{#if currentGame}}
-          {{#ionItem}}
-             <h2 style="font-size:1.5em;">{{hostname}}John</h2>
-             <p class="host-subtitle">Host</p>
-          {{/ionItem}}
-        {{else}}
-          <div class="valign-wrapper" style="height:70vh;">
-            <button class="button button-positive" id="host-lobby">
-              Host a Lobby!
-            </button>
-          </div>
-        {{/if}}
-
+        <div class="new-lobby-button">
+          <button class="button button-positive" id="host-lobby">
+            Host a Lobby!
+          </button>
+        </div>
       {{else}}
         <h1>Must be logged in</h1>
       {{/if}}
-
 
     {{/ionContent}}
   {{/ionView}}
