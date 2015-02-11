@@ -11,7 +11,10 @@ Router.map ->
 
   @route 'notifications',
     path: '/notifications'
-    controller: 'NotificationsController'
+    waitOn: ->
+      [
+        Meteor.subscribe 'users'
+      ]
 
   @route 'lobby',
     path: '/lobby'
@@ -20,10 +23,16 @@ Router.map ->
     path: '/lobby/:_id'
     data: ->
       Lobby.findOne(@params._id)
-    controller: 'CurrentLobbyController'
+    waitOn: ->
+      [
+        Meteor.subscribe "lobby"
+      ]
 
   @route 'currentGame',
     path: '/game/:_id'
-    controller: "GamesController"
     data: ->
       Games.findOne(@params._id)
+    waitOn: ->
+      [
+        Meteor.subscribe 'games'
+      ]

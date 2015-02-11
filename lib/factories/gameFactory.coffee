@@ -4,12 +4,11 @@ GameFactory.createGame = (playerIds) ->
   whiteDeck = createWhiteDeck()
   blackDeck = createBlackDeck()
   players = createPlayers(playerIds)
+  table = GameFactory.dealTable(blackDeck)
 
   GameFactory.dealPlayers(players, whiteDeck)
   GameFactory.dealOne(players, whiteDeck)
   GameFactory.dealTable(blackDeck)
-
-  table = GameFactory.dealTable(blackDeck) # this might have an error... Perhaps we need to run GameFactory....
 
   blackDeck: blackDeck
   whiteDeck: whiteDeck
@@ -38,7 +37,7 @@ createWhiteDeck = ->
   _.shuffle(cards)
 
 createBlackDeck = ->
-  cards = Cards.find(cardType: "Q", numAnswers: 1).fetch() # Currently only creates a deck with one answer
+  cards = Cards.find(cardType: "Q", numAnswers: 1).fetch() # TODO Currently only creates a deck with one answer; game wont work with two answers
   _.shuffle(cards)
 
 createPlayers = (players) ->

@@ -5,31 +5,10 @@ if Meteor.isServer
     Lobby.find()
 
   Lobby.allow
-    insert: (userId, doc) ->
+    insert: ->
       true
-
-    update: (userId, docs, fields, modifier) ->
+    update: ->
       true
-
 
 if Meteor.isClient
   Meteor.subscribe 'lobby'
-
-###
-
-game =
-  currentTurn: []   # an array of users in the game
-  whiteDeck: []
-  blackDeck: []     # an array of the cards left in the deck
-  table: []         # public cards (current black card)
-  players: [
-    id: id
-    hand: []
-    score: 0
-  ]
-  inProgress: true/false
-  started: date
-  ended: date
-  winner: id
-
-###

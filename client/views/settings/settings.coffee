@@ -10,4 +10,4 @@ Template.settings.events
     Meteor.logout()
 
   'click #login-create-button': ->
-    IonModal.open('signInModal')
+    IonModal.open 'signInModal'
