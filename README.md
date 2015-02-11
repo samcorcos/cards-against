@@ -15,7 +15,7 @@ Demo: [cag.meteor.com](http://cag.meteor.com)
 
 The entire game engine is 50 lines of `coffeescript` (see `/lib/factories/gameFactory.coffee`)
 
-The lobby uses an `@autorun` to route all users in the current lobby to the new game url (thank you [Stack Overflow](http://stackoverflow.com/questions/28417668/meteor-1-0-hosting-a-lobby-and-redirecting-other-users):
+The lobby uses an `@autorun` to route all users in the current lobby to the new game url (thank you [Stack Overflow](http://stackoverflow.com/questions/28417668/meteor-1-0-hosting-a-lobby-and-redirecting-other-users)):
 
 ```
 Template.currentLobby.rendered = ->
