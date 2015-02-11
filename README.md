@@ -3,6 +3,8 @@ A mobile version of cards against humanity
 
 Uses Ionic and Meteor.
 
+Demo: [cag.meteor.com](http://cag.meteor.com)
+
 ## How to play
 
 1. Create an account
